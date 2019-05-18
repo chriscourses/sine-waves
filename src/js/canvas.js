@@ -59,7 +59,13 @@ function animate() {
   c.moveTo(0, canvas.height / 2)
 
   for (let i = 0; i < canvas.width; i++) {
-    c.lineTo(i, wave.y + Math.sin(i * wave.length + increment) * wave.amplitude)
+    c.lineTo(
+      i,
+      wave.y +
+        Math.sin(i * wave.length + increment) *
+          wave.amplitude *
+          Math.sin(increment)
+    )
   }
 
   c.strokeStyle = `hsl(${Math.abs(strokeColor.h * Math.sin(increment))}, ${
